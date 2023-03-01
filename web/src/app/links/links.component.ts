@@ -1,4 +1,4 @@
-import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
+import { ChangeDetectionStrategy, Component } from '@angular/core';
 import { menuSizesType } from '@great-web/shared/types/menu-sizes.type';
 
 @Component({
@@ -7,10 +7,6 @@ import { menuSizesType } from '@great-web/shared/types/menu-sizes.type';
   styleUrls: ['./links.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class LinksComponent implements OnInit {
+export class LinksComponent {
   device: menuSizesType = 'desktop';
-
-  constructor() {}
-
-  ngOnInit(): void {}
 }

@@ -1,4 +1,4 @@
-import { ChangeDetectionStrategy, Component, Input, OnInit } from '@angular/core';
+import { ChangeDetectionStrategy, Component, Input } from '@angular/core';
 import { postsInterface } from '@great-shared/interfaces/posts.interface';
 
 @Component({
@@ -7,10 +7,6 @@ import { postsInterface } from '@great-shared/interfaces/posts.interface';
   styleUrls: ['./single-post.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class SinglePostComponent implements OnInit {
+export class SinglePostComponent {
   @Input() post: postsInterface | undefined;
-
-  constructor() {}
-
-  ngOnInit(): void {}
 }

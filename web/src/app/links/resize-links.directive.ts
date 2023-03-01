@@ -12,7 +12,9 @@ export class ResizeLinksDirective implements AfterContentInit {
   constructor(private _elementRef: ElementRef<HTMLElement>) {}
 
   ngAfterContentInit(): void {
-    this._resize();
+    setTimeout(() => {
+      this._resize();
+    });
   }
 
   @HostListener('window:resize', ['$event'])

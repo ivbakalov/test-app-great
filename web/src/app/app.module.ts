@@ -9,7 +9,6 @@ import { ResizeLinksDirective } from './links/resize-links.directive';
 @NgModule({
   declarations: [AppComponent, LinksComponent, ResizeLinksDirective],
   imports: [BrowserModule, AppRoutingModule, HttpClientModule],
-  providers: [],
   bootstrap: [AppComponent],
 })
 export class AppModule {}
