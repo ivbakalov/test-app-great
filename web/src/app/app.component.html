@@ -1,0 +1,18 @@
+<header class="pt-20 pb-20 pos-fixed col-24">
+  <div class="container flex flex--center">
+    <button (click)="openCloseMenu = !openCloseMenu" class="res-menu cursor-pointer"
+      ><span class="sr-only"></span><span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span
+    ></button>
+    <app-great-links class="header-links ml-auto"> </app-great-links>
+  </div>
+</header>
+
+<div class="col-24 flex content-wrapper">
+  <div class="col-4 left-menu p-15" [ngClass]="{ 'menu-open': openCloseMenu }">
+    <h3 class="ml-10 mb-20">Left menu</h3>
+    <app-great-links class="ml-auto"> </app-great-links>
+  </div>
+  <div class="col-20 pl-10 pr-10">
+    <router-outlet></router-outlet>
+  </div>
+</div>

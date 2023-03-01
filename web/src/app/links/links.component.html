@@ -1,0 +1,5 @@
+<ul [class]="device + ' col-24'" appGreatResizeLinks (menuStyleEmitter)="device = $event">
+  <li> <a class="p-10" [routerLink]="['/']" routerLinkActive="selected" [routerLinkActiveOptions]="{ exact: true }">Home</a></li>
+  <li> <a class="p-10" [routerLink]="['posts']" routerLinkActive="selected">Posts</a></li>
+  <li> <a class="p-10" [routerLink]="['gallery']" routerLinkActive="selected">Gallery</a></li>
+</ul>

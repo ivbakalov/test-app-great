@@ -1,0 +1,17 @@
+<h2 class="ml-10 mb-10 mt-30">Gallery</h2>
+<ng-container *ngIf="gallery$ | async as gallery">
+  <div class="flex flex--wrap">
+    <ng-container *ngFor="let singleGallery of gallery?.data">
+      <app-great-single-gallery [singleGallery]="singleGallery"></app-great-single-gallery>
+    </ng-container>
+  </div>
+  <mat-paginator
+    color="primary"
+    [length]="gallery?.pageTotal"
+    [pageSize]="paginatorSize"
+    [pageIndex]="galleryPage - 1"
+    hidePageSize
+    showFirstLastButtons
+    (page)="onPaginationChange($event)"
+  ></mat-paginator>
+</ng-container>

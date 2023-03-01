@@ -1,0 +1,92 @@
+@use '../assets/app.responsive' as res;
+@use '../assets/app.view-ports' as viewPorts;
+
+header {
+  background: var(--primary-color);
+  top: 0;
+  z-index: 10;
+}
+
+.left-menu {
+  width: 240px;
+  background: var(--accent-color);
+  height: 100vh;
+  top: 60px;
+  position: fixed;
+  left: -100%;
+  transition: left 0.2s ease-in-out;
+
+  h3 {
+    color: black;
+  }
+
+  &.menu-open {
+    left: 0 !important;
+  }
+}
+
+.header-links {
+  display: none;
+  width: 400px;
+}
+
+.content-wrapper {
+  margin-top: 70px;
+}
+
+.res-menu {
+  background: transparent;
+  border: transparent;
+  margin-right: 10px;
+  z-index: 40;
+  position: relative;
+  display: block;
+
+  .icon-bar {
+    display: block;
+    width: 25px;
+    height: 4px;
+    border-radius: 4px;
+    background-color: white;
+  }
+
+  .icon-bar + .icon-bar {
+    margin-top: 3px;
+  }
+
+  &.opened {
+    .icon-bar:nth-child(2) {
+      transform: rotate(-45deg);
+      top: 1px;
+      position: relative;
+    }
+    .icon-bar:nth-child(3) {
+      transform: rotate(45deg);
+    }
+
+    .icon-bar + .icon-bar {
+      margin-top: -3px;
+    }
+
+    .icon-bar:last-of-type {
+      display: none;
+    }
+  }
+}
+
+@include res.for-size(viewPorts.$xsMax) {
+  .left-menu {
+    top: 58px;
+    position: sticky;
+    right: 0;
+    z-index: 10;
+  }
+
+  .header-links {
+    display: block;
+  }
+
+  .res-menu {
+    display: none;
+  }
+}

@@ -1,0 +1,236 @@
+@use './app.responsive' as res;
+@use './app.view-ports' as viewPorts;
+
+$sizesArray: (
+  '0': 0,
+  '5': 5px,
+  '10': 10px,
+  '15': 15px,
+  '20': 20px,
+  '25': 25px,
+  '30': 30px,
+  'auto': auto,
+);
+
+@mixin add-custom-padding() {
+  @each $classPadding, $padding in $sizesArray {
+    .pt-#{$classPadding} {
+      padding-top: #{$padding} !important;
+    }
+    .pr-#{$classPadding} {
+      padding-right: #{$padding} !important;
+    }
+    .pb-#{$classPadding} {
+      padding-bottom: #{$padding} !important;
+    }
+    .pl-#{$classPadding} {
+      padding-left: #{$padding} !important;
+    }
+    .p-#{$classPadding} {
+      padding: #{$padding} !important;
+    }
+  }
+}
+
+@mixin add-custom-margin() {
+  @each $classMargin, $margin in $sizesArray {
+    .mt-#{$classMargin} {
+      margin-top: #{$margin} !important;
+    }
+    .mr-#{$classMargin} {
+      margin-right: #{$margin} !important;
+    }
+    .mb-#{$classMargin} {
+      margin-bottom: #{$margin} !important;
+    }
+    .ml-#{$classMargin} {
+      margin-left: #{$margin} !important;
+    }
+    .m-#{$classMargin} {
+      margin: #{$margin} !important;
+    }
+  }
+}
+
+$colSizes: (
+  '1': 4.16666667%,
+  '2': 8.33333334%,
+  '3': 12.5%,
+  '4': 16.6666666%,
+  '5': 20.8333333%,
+  '6': 25%,
+  '7': 29.1666667%,
+  '8': 33.3333334%,
+  '9': 37.5000001%,
+  '10': 41.6666668%,
+  '11': 45.8333335%,
+  '12': 50.0000002%,
+  '13': 54.1666669%,
+  '14': 58.3333336%,
+  '15': 62.5000003%,
+  '16': 66.666667%,
+  '17': 70.833334%,
+  '18': 75.000001%,
+  '19': 79.166668%,
+  '20': 83.333335%,
+  '21': 87.500002%,
+  '22': 91.666669%,
+  '23': 95.833336%,
+  '24': 100%,
+);
+
+// BOOTSTRAP LIKE COL GRID TYPE
+@mixin set-col-styles() {
+  @each $classCol, $col in $colSizes {
+    .col-#{$classCol} {
+      width: $col;
+    }
+  }
+}
+
+.center-margin {
+  margin: 0 auto !important;
+}
+
+.bold {
+  font-weight: bold !important;
+}
+
+.normal {
+  font-weight: normal;
+}
+
+.flex {
+  display: flex;
+  &--grow-1 {
+    flex-grow: 1;
+  }
+  &--column {
+    flex-direction: column;
+  }
+  &--space-between {
+    justify-content: space-between;
+  }
+  &--justify-center {
+    justify-content: center;
+  }
+  &--space-around {
+    justify-content: space-around;
+  }
+  &--justify-start {
+    justify-content: flex-start;
+  }
+  &--justify-end {
+    justify-content: flex-end;
+  }
+  &--center {
+    align-items: center;
+  }
+  &--top {
+    align-items: flex-start;
+  }
+  &--end {
+    align-items: flex-end;
+  }
+  &--stretch {
+    align-items: stretch;
+  }
+  &--no-wrap {
+    flex-wrap: nowrap;
+  }
+  &--wrap {
+    flex-wrap: wrap;
+  }
+}
+
+.inline-block {
+  display: inline-block;
+}
+.inline-flex {
+  display: inline-flex;
+}
+
+.block {
+  display: block !important;
+}
+
+.display-none {
+  display: none !important;
+}
+
+.text-uppercase {
+  text-transform: uppercase;
+}
+.text-center {
+  text-align: center !important;
+}
+.text-left {
+  text-align: left !important;
+}
+.text-right {
+  text-align: right !important;
+}
+
+.overflow {
+  &--hidden {
+    overflow: hidden;
+  }
+  &--scroll-x-hidden {
+    overflow-x: hidden;
+  }
+  &--scroll-y {
+    overflow-y: scroll;
+  }
+  &--scroll-y-auto {
+    overflow-y: auto;
+  }
+  &--scroll-x {
+    overflow-x: scroll;
+  }
+  &--scroll-x-auto {
+    overflow-x: auto;
+  }
+  &--visible {
+    overflow: visible;
+  }
+  &--no-scroll {
+    overflow: hidden;
+  }
+}
+
+.pos-relative {
+  position: relative;
+}
+.pos-absolute {
+  position: absolute;
+}
+.pos-sticky {
+  position: sticky;
+}
+
+.pos-static {
+  position: static;
+}
+
+.pos-fixed {
+  position: fixed;
+}
+
+.cursor-pointer {
+  cursor: pointer;
+}
+
+.h-100 {
+  height: 100vh;
+  height: calc(var(--vh, 1vh) * 100) !important;
+}
+
+.container {
+  width: 100%;
+  max-width: calc(100% - 15px);
+
+  @include res.for-size(viewPorts.$xsMax) {
+    max-width: 1800px;
+    padding: 0 15px;
+  }
+}

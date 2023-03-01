@@ -1,0 +1,13 @@
+@use 'app.view-ports' as viewPorts;
+
+@mixin for-size($size, $orientation: false) {
+  @if $orientation {
+    @media (min-width: $size) and (orientation: $orientation) {
+      @content;
+    }
+  } @else {
+    @media (min-width: $size) {
+      @content;
+    }
+  }
+}

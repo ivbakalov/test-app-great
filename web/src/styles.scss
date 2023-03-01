@@ -1,0 +1,12 @@
+@use './assets/app.helpers' as helpers;
+@use './assets/settings.normalizer' as normalizer;
+
+:root {
+  --primary-color: #ed7d31;
+  --secondary-color: #70ad47;
+  --accent-color: #a5a5a5;
+}
+
+@include helpers.add-custom-padding();
+@include helpers.add-custom-margin();
+@include helpers.set-col-styles();

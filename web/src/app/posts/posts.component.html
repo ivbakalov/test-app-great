@@ -1,0 +1,18 @@
+<div class="ml-10">
+  <ng-container *ngIf="posts$ | async as posts">
+    <h2>Posts</h2>
+    <ng-container *ngFor="let post of posts?.data">
+      <app-great-single-post [post]="post"></app-great-single-post>
+    </ng-container>
+
+    <mat-paginator
+      color="primary"
+      [length]="posts?.pageTotal"
+      [pageSize]="paginatorSize"
+      [pageIndex]="page - 1"
+      hidePageSize
+      showFirstLastButtons
+      (page)="onPaginationChange($event)"
+    ></mat-paginator>
+  </ng-container>
+</div>

@@ -1,0 +1,18 @@
+a {
+  &.selected {
+    font-weight: bold;
+  }
+  color: black;
+}
+
+.desktop {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+}
+
+.mobile {
+  li {
+    margin: 10px 0;
+  }
+}
