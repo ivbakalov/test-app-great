@@ -9,7 +9,6 @@ export const serverError = (res: ServerResponse) => {
   };
 
   res.end(response);
-  res.end();
 
   return;
 };

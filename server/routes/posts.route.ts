@@ -11,7 +11,10 @@ export const posts = (reqUrl: URL, res: ServerResponse) => {
   readFile(join(process.cwd(), 'server', 'mock-data', 'posts.json'), 'utf-8', (err: unknown, data: string) => {
     if (err) {
       console.log(err);
+
       serverError(res);
+
+      return;
     }
 
     try {

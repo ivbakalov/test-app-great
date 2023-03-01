@@ -1,8 +1,3 @@
-// if (!PROXIES) {
-//   console.log(`Gateway configuration file - 'proxies.json' could not be found.`);
-//   process.exit(1);
-// }
-
 module.exports = [
   {
     context: ['/api'],

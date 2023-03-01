@@ -11,7 +11,10 @@ export const gallery = (reqUrl: URL, res: ServerResponse) => {
   readFile(join(process.cwd(), 'server', 'mock-data', 'gallery.json'), 'utf-8', (err: unknown, data: string) => {
     if (err) {
       console.log(err);
+
       serverError(res);
+
+      return;
     }
 
     try {
@@ -27,6 +30,7 @@ export const gallery = (reqUrl: URL, res: ServerResponse) => {
       res.end(JSON.stringify({ data: { data: updatedParsedData ? updatedParsedData : parsedData, pageTotal: parsedData.length } }));
     } catch (error) {
       console.log(err);
+
       serverError(res);
 
       return;
