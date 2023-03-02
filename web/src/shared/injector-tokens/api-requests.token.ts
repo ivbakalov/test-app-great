@@ -1,6 +1,6 @@
 import { InjectionToken } from '@angular/core';
 
-export const API_TOKEN = new InjectionToken('API_PREFIX_PREMATCH', {
+export const API_TOKEN = new InjectionToken('API_TOKEN', {
   factory: (): string => `/api`,
   providedIn: 'root',
 });
