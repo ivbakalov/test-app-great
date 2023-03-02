@@ -1,7 +1,7 @@
 import { postResponseInterface } from '@great-shared/interfaces/posts.interface';
 import { Inject, Injectable } from '@angular/core';
 import { HttpClient, HttpParams } from '@angular/common/http';
-import { map, Observable } from 'rxjs';
+import { catchError, map, Observable, EMPTY } from 'rxjs';
 import { postServiceInterface } from './interfaces/posts-service-interface';
 import { ResponseInterface } from '@great-shared/interfaces/response.interface';
 import { API_TOKEN } from '../injector-tokens/api-requests.token';
@@ -19,6 +19,13 @@ export class PostsService implements postServiceInterface {
 
     if (page) params = params.set('page', page);
 
-    return this._http.get<ResponseInterface<postResponseInterface | undefined>>(`${this._API_TOKEN}/posts`, { params }).pipe(map((posts) => posts?.data));
+    return this._http.get<ResponseInterface<postResponseInterface | undefined>>(`${this._API_TOKEN}/posts`, { params }).pipe(
+      map((posts) => posts?.data),
+      catchError(() => {
+        return EMPTY;
+
+        // Do something if error occure
+      })
+    );
   }
 }

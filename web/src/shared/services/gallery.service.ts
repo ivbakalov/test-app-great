@@ -1,6 +1,6 @@
 import { Inject, Injectable } from '@angular/core';
 import { HttpClient, HttpParams } from '@angular/common/http';
-import { map, Observable } from 'rxjs';
+import { catchError, EMPTY, map, Observable } from 'rxjs';
 import { ResponseInterface } from '@great-shared/interfaces/response.interface';
 import { API_TOKEN } from '../injector-tokens/api-requests.token';
 import { galleryServiceInterface } from './interfaces/gallery-service-interface';
@@ -19,6 +19,13 @@ export class GalleryService implements galleryServiceInterface {
 
     if (galleryPage) params = params.set('galleryPage', galleryPage);
 
-    return this._http.get<ResponseInterface<galleryResponseInterface>>(`${this._API_TOKEN}/gallery`, { params }).pipe(map((posts) => posts?.data));
+    return this._http.get<ResponseInterface<galleryResponseInterface>>(`${this._API_TOKEN}/gallery`, { params }).pipe(
+      map((posts) => posts?.data),
+      catchError(() => {
+        return EMPTY;
+
+        // Do something if error occure
+      })
+    );
   }
 }
