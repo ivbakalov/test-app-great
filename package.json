@@ -8,6 +8,7 @@
     "devserver": "./node_modules/nodemon/bin/nodemon.js server/dist/index.js",
     "watch": "ng build --watch --configuration development",
     "server:dev": "NODE_ENV=development  webpack build  --config ./server/webpack.config.js --watch & ./node_modules/nodemon/bin/nodemon.js server/dist/index.js",
+    "server:build": "NODE_ENV=production  webpack build  --config ./server/webpack.config.js",
     "test": "ng test"
   },
   "private": true,
